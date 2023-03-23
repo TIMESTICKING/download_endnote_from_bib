@@ -1,0 +1,8 @@
+
+@article{li2022deep,
+  title={Deep Unsupervised Blind Hyperspectral and Multispectral Data Fusion},
+  author={Li, Jiaxin and Zheng, Ke and Yao, Jing and Gao, Lianru and Hong, Danfeng},
+  journal={IEEE Geoscience and Remote Sensing Letters},
+  year={2022},
+  publisher={IEEE}
+}
