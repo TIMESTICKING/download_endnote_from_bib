@@ -8,6 +8,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import random
 import string
+from argparse import ArgumentParser
 
 def get_titles(bib_file):
     with open(bib_file, 'r', encoding='utf-8') as f:
@@ -94,5 +95,8 @@ def download_all_articles(bib_file):
 
 
 if __name__ == '__main__':
-    bib_file = 'bib.txt'
-    download_all_articles(bib_file)
+    parser = ArgumentParser()
+    parser.add_argument('--file', type=str, default='testbib.txt')
+    args = parser.parse_args()
+    
+    download_all_articles(args.file)
