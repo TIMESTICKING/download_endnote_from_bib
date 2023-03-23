@@ -21,6 +21,8 @@ You can check the downloaded file in the `refs` folder under the path that you e
 # Proxy for China area
 Export the IP and port of your proxy server in the terminal window which you use to run the code. For example:
 
+在用于运行代码的终端窗口中导出代理服务器的 IP 和端口。例如：
+
 ## windows
 ```
 set https_proxy=http://127.0.0.1:<port>
@@ -32,3 +34,5 @@ set http_proxy=http://127.0.0.1:<port>
 export https_proxy=http://127.0.0.1:<port>
 export http_proxy=http://127.0.0.1:<port>
 ```
+
+通常情况下IP就为`http://127.0.0.1`，端口需要查看你的代理软件的设置，clash默认为`7890`。
