@@ -1,8 +1,10 @@
 
-@article{li2022deep,
-  title={Deep Unsupervised Blind Hyperspectral and Multispectral Data Fusion},
-  author={Li, Jiaxin and Zheng, Ke and Yao, Jing and Gao, Lianru and Hong, Danfeng},
-  journal={IEEE Geoscience and Remote Sensing Letters},
-  year={2022},
+@article{umag,
+  title={UMAG-Net: A New Unsupervised Multiattention-Guided Network for Hyperspectral and Multispectral Image Fusion},
+  author={Liu, Shuaiqi and Miao, Siyu and Su, Jian and Li, Bing and Hu, Weiming and Zhang, Yu-Dong},
+  journal={IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing},
+  volume={14},
+  pages={7373--7385},
+  year={2021},
   publisher={IEEE}
 }

@@ -3,19 +3,31 @@
 
 # How to use?
 
-1. Prepare the python environment
+## 1. Prepare the python environment
 
 ```
 pip install -r requirements.txt
 ````
 
-2. Run with the bib file (can be the .txt or .bib etc...)
+## 2. Run with the bib file (can be the .txt or .bib etc...)
 
 ```
 python main.py --file <yourBibFile>
 ```
 
 You can check the downloaded file in the `refs` folder under the path that you execute the code.
+
+## 3. (Optional) Ignore references by adding
+```
+--ignore <your file>
+```
+The file should have the format as: (every line is a paper title)
+```
+<title1> # you should replace <> as well
+<title2>
+...
+```
+or you can export the file from endnote by using the style we provided `export notes.ens`
 
 
 # Proxy for China area

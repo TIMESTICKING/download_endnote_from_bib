@@ -9,6 +9,22 @@ from selenium.webdriver.common.by import By
 import random
 import string
 from argparse import ArgumentParser
+import difflib
+
+        
+def read_ignore(file):
+    with open(file, 'r', encoding='utf-8') as f:
+        content = f.readlines()
+
+    # 去除每一行的换行符\n并存储到一个列表中
+    lines = []
+    for line in content:
+        lines.append(line.strip())
+
+    return lines
+
+    
+
 
 def get_titles(bib_file):
     with open(bib_file, 'r', encoding='utf-8') as f:
@@ -84,19 +100,42 @@ def download_article(driver, title):
     #     pass
 
 
-def download_all_articles(bib_file):
+def coarse_diff(title, targets):
+    max = -1
+    for t in targets:
+        ratio = difflib.SequenceMatcher(None, title, t).ratio()
+        if ratio >= max:
+            max = ratio
+    
+    return max
+
+
+
+def download_all_articles(args):
+    bib_file = args.file
     titles = get_titles(bib_file)
     print(f'Total {len(titles)} titles found')
     driver = webdriver.Chrome()
+
+    if args.ignore is not None:
+        ignore_files = read_ignore(args.ignore)
+
     for i, title in enumerate(titles):
-        print(f'Downloading article {i+1}/{len(titles)}')
-        download_article(driver, title)
+        if args.ignore is not None and coarse_diff(title, ignore_files) >= 0.8:
+            print('=== ignore ', title, '===!')
+        else:
+            print(f'Downloading article {title}, {i+1}/{len(titles)}')
+            download_article(driver, title)
     driver.quit()
+
+
 
 
 if __name__ == '__main__':
     parser = ArgumentParser()
-    parser.add_argument('--file', type=str, default='testbib.txt')
+    parser.add_argument('--file', type=str, default='bib.txt')
+    parser.add_argument('--ignore', type=str, default=None)
     args = parser.parse_args()
+
     
-    download_all_articles(args.file)
+    download_all_articles(args)
