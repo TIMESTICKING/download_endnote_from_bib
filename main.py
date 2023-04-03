@@ -28,10 +28,10 @@ def read_ignore(file):
 
 def get_titles(bib_file):
     with open(bib_file, 'r', encoding='utf-8') as f:
-        content = f.read()
-    pattern = r'(?<=\s)title\s*=\s*{([^}]*)}'
-    titles = re.findall(pattern, content)
-    return titles
+        content = f.readlines()
+
+    return content
+    
 
 
 def download_endnote(title, url):
